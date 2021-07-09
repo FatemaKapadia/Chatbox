@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>Azure.Communication.Chat</name>
+    </assembly>
+    <members>
+        <member name="T:Azure.Communication.Chat.ChatClient">
+            <summary>
+            The Azure Communication Services Chat client.
+            </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.#ctor(System.Uri,Azure.Communication.CommunicationTokenCredential,Azure.Communication.Chat.ChatClientOptions)">
+            <summary> Initializes a new instance of <see cref="T:Azure.Communication.Chat.ChatClient" />.</summary>
+            <param name="endpoint">The uri for the Azure Communication Services Chat.</param>
+            <param name="communicationTokenCredential">Instance of <see cref="T:Azure.Communication.CommunicationTokenCredential" />.</param>
+            <param name="options">Chat client options exposing <see cref="P:Azure.Core.ClientOptions.Diagnostics" />, <see cref="P:Azure.Core.ClientOptions.Retry" />, <see cref="P:Azure.Core.ClientOptions.Transport" />, etc.</param>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.#ctor">
+            <summary>Initializes a new instance of <see cref="T:Azure.Communication.Chat.ChatClient" /> for mocking.</summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.CreateChatThreadAsync(System.String,System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipant},System.String,System.Threading.CancellationToken)">
+            <summary>Creates a ChatThreadClient asynchronously. <see cref="T:Azure.Communication.Chat.ChatThreadClient" />.</summary>
+            <param name="topic">Topic for the chat thread</param>
+            <param name="participants">Participants to be included in the chat thread</param>
+            <param name="idempotencyToken"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-ID and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-ID is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
+            <param name="cancellationToken">The cancellation token for the task.</param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.CreateChatThread(System.String,System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipant},System.String,System.Threading.CancellationToken)">
+            <summary>Creates a ChatThreadClient synchronously.<see cref="T:Azure.Communication.Chat.ChatThreadClient" />.</summary>
+            <param name="topic">Topic for the chat thread</param>
+            <param name="participants">Participants to be included in the chat thread</param>
+            <param name="idempotencyToken"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-ID and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-ID is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
+            <param name="cancellationToken">The cancellation token for the task.</param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.GetChatThreadClient(System.String)">
+            <summary> Initializes a new instance of ChatThreadClient. <see cref="T:Azure.Communication.Chat.ChatThreadClient" />.</summary>
+            <param name="threadId"> The thread id for the ChatThreadClient instance. </param>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.GetChatThreadsAsync(System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets the list of chat threads of a user<see cref="T:Azure.Communication.Chat.ChatThreadItem" /> asynchronously.</summary>
+            <param name="startTime"> The earliest point in time to get chat threads up to. The timestamp should be in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.GetChatThreads(System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets the list of chat threads of a user<see cref="T:Azure.Communication.Chat.ChatThreadItem" />.</summary>
+            <param name="startTime"> The earliest point in time to get chat threads up to. The timestamp should be in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.DeleteChatThreadAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a thread asynchronously. </summary>
+            <param name="threadId"> Thread id to delete. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClient.DeleteChatThread(System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a thread. </summary>
+            <param name="threadId"> Thread id to delete. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatClientOptions">
+            <summary>
+            The options for communication <see cref="T:Azure.Communication.Chat.ChatClient" />.
+            </summary>
+        </member>
+        <member name="F:Azure.Communication.Chat.ChatClientOptions.LatestVersion">
+            <summary>
+            The latest version of the Chat service.
+            </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatClientOptions.#ctor(Azure.Communication.Chat.ChatClientOptions.ServiceVersion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Azure.Communication.Chat.ChatClientOptions" />.
+            </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatClientOptions.ServiceVersion">
+            <summary>
+            The Chat service version.
+            </summary>
+        </member>
+        <member name="F:Azure.Communication.Chat.ChatClientOptions.ServiceVersion.V2021_03_07">
+            <summary>
+            The V1 of the Chat service.
+            </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatThreadClient">
+            <summary>
+            The Azure Communication Services ChatThread client.
+            </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadClient.Id">
+            <summary>
+            Represents the unique identifier for the thread associated to this instance.
+            </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.#ctor(System.String,System.Uri,Azure.Communication.CommunicationTokenCredential,Azure.Communication.Chat.ChatClientOptions)">
+            <summary> Initializes a new instance of <see cref="T:Azure.Communication.Chat.ChatThreadClient" />.</summary>
+            <param name="threadId"></param>
+            <param name="endpoint">The uri for the Azure Communication Services Chat.</param>
+            <param name="communicationTokenCredential">Instance of <see cref="T:Azure.Communication.CommunicationTokenCredential" />.</param>
+            <param name="options">Chat client options exposing <see cref="P:Azure.Core.ClientOptions.Diagnostics" />, <see cref="P:Azure.Core.ClientOptions.Retry" />, <see cref="P:Azure.Core.ClientOptions.Transport" />, etc.</param>
+            <exception cref="T:System.ArgumentNullException"> This occurs when one of the required arguments is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.#ctor">
+            <summary>Initializes a new instance of <see cref="T:Azure.Communication.Chat.ChatThreadClient" /> for mocking.</summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.UpdateTopicAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Updates the thread's topic asynchronously. </summary>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.UpdateTopic(System.String,System.Threading.CancellationToken)">
+            <summary> Updates the thread's topic. </summary>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetPropertiesAsync(System.Threading.CancellationToken)">
+            <summary> Gets a chat thread asynchronously. </summary>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetProperties(System.Threading.CancellationToken)">
+            <summary> Gets a chat thread. </summary>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.SendMessageAsync(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.Threading.CancellationToken)">
+            <summary> Sends a message to a thread asynchronously. </summary>
+            <param name="content"> Chat message content. </param>
+            <param name="type"> The chat message type. </param>
+            <param name="senderDisplayName"> The display name of the chat message sender. This property is used to populate sender name for push notifications. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.SendMessage(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.Threading.CancellationToken)">
+            <summary> Sends a message to a thread. </summary>
+            <param name="content"> Message content. </param>
+            <param name="type"> The chat message type. </param>
+            <param name="senderDisplayName"> The display name of the message sender. This property is used to populate sender name for push notifications. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetMessageAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Gets a message by id asynchronously. </summary>
+            <param name="messageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetMessage(System.String,System.Threading.CancellationToken)">
+            <summary> Gets a message by id. </summary>
+            <param name="messageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetMessagesAsync(System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets a list of messages from a thread asynchronously. </summary>
+            <param name="startTime"> The earliest point in time to get messages up to. The timestamp should be in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetMessages(System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets a list of messages from a thread. </summary>
+            <param name="startTime"> The earliest point in time to get messages up to. The timestamp should be in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.UpdateMessageAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Updates a message asynchronously. </summary>
+            <param name="messageId"> The message id. </param>
+            <param name="content"> Chat message content. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.UpdateMessage(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Updates a message asynchronously. </summary>
+            <param name="messageId"> The message id. </param>
+            <param name="content"> Chat message content. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.DeleteMessageAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a message. </summary>
+            <param name="messageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.DeleteMessage(System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a message. </summary>
+            <param name="messageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.AddParticipantAsync(Azure.Communication.Chat.ChatParticipant,System.Threading.CancellationToken)">
+            <summary> Adds a participant to a thread asynchronously. If the participant already exist, no change occurs. </summary>
+            <param name="participant"> Participant to add to a chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.AddParticipant(Azure.Communication.Chat.ChatParticipant,System.Threading.CancellationToken)">
+            <summary> Adds participants to a thread. If participants already exist, no change occurs. </summary>
+            <param name="participant"> Participants to add to a chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.AddParticipantsAsync(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipant},System.Threading.CancellationToken)">
+            <summary> Adds participants to a thread asynchronously. If participants already exist, no change occurs. </summary>
+            <param name="participants"> Participants to add to a chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.AddParticipants(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipant},System.Threading.CancellationToken)">
+            <summary> Adds participants to a thread. If participants already exist, no change occurs. </summary>
+            <param name="participants"> Participants to add to a chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetParticipantsAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets the participants of a thread asynchronously. </summary>
+            <param name="skip"> Skips participants up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetParticipants(System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets the participants of a thread. </summary>
+            <param name="skip"> Skips participants up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.RemoveParticipantAsync(Azure.Communication.CommunicationIdentifier,System.Threading.CancellationToken)">
+            <summary> Remove a participant from a thread asynchronously.</summary>
+            <param name="identifier"><see cref="T:Azure.Communication.CommunicationIdentifier" /> to be removed from the chat thread participants.</param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.RemoveParticipant(Azure.Communication.CommunicationIdentifier,System.Threading.CancellationToken)">
+            <summary> Remove a member from a thread .</summary>
+            <param name="identifier"><see cref="T:Azure.Communication.CommunicationIdentifier" /> to be removed from the chat thread participants.</param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.SendTypingNotificationAsync(System.Threading.CancellationToken)">
+            <summary> Posts a typing event to a thread, on behalf of a user asynchronously. </summary>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.SendTypingNotification(System.Threading.CancellationToken)">
+            <summary> Posts a typing event to a thread, on behalf of a user. </summary>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.SendReadReceiptAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Sends a read receipt event to a thread, on behalf of a user asynchronously. </summary>
+            <param name="messageId"> Id of the latest chat message read by the user. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.SendReadReceipt(System.String,System.Threading.CancellationToken)">
+            <summary> Sends a read receipt event to a thread, on behalf of a user. </summary>
+            <param name="messageId"> Id of the latest chat message read by the user. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetReadReceiptsAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets read receipts for a thread asynchronously. </summary>
+            <param name="skip"> Skips chat message read receipts up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadClient.GetReadReceipts(System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets read receipts for a thread. </summary>
+            <param name="skip"> Skips chat message read receipts up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:Azure.RequestFailedException">The server returned an error. See <see cref="P:System.Exception.Message" /> for details returned from the server.</exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.#ctor(Azure.Core.Pipeline.ClientDiagnostics,Azure.Core.Pipeline.HttpPipeline,System.String,System.String)">
+            <summary> Initializes a new instance of ChatRestClient. </summary>
+            <param name="clientDiagnostics"> The handler for diagnostic messaging in the client. </param>
+            <param name="pipeline"> The HTTP pipeline for sending and receiving REST requests and responses. </param>
+            <param name="endpoint"> The endpoint of the Azure Communication resource. </param>
+            <param name="apiVersion"> Api Version. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="endpoint" /> or <paramref name="apiVersion" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.CreateChatThreadAsync(System.String,System.String,System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipantInternal},System.Threading.CancellationToken)">
+            <summary> Creates a chat thread. </summary>
+            <param name="topic"> The chat thread topic. </param>
+            <param name="repeatabilityRequestId"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
+            <param name="participants"> Participants to be added to the chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="topic" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.CreateChatThread(System.String,System.String,System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipantInternal},System.Threading.CancellationToken)">
+            <summary> Creates a chat thread. </summary>
+            <param name="topic"> The chat thread topic. </param>
+            <param name="repeatabilityRequestId"> If specified, the client directs that the request is repeatable; that is, that the client can make the request multiple times with the same Repeatability-Request-Id and get back an appropriate response without the server executing the request multiple times. The value of the Repeatability-Request-Id is an opaque string representing a client-generated, globally unique for all time, identifier for the request. It is recommended to use version 4 (random) UUIDs. </param>
+            <param name="participants"> Participants to be added to the chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="topic" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.ListChatThreadsAsync(System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets the list of chat threads of a user. </summary>
+            <param name="maxPageSize"> The maximum number of chat threads returned per page. </param>
+            <param name="startTime"> The earliest point in time to get chat threads up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.ListChatThreads(System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets the list of chat threads of a user. </summary>
+            <param name="maxPageSize"> The maximum number of chat threads returned per page. </param>
+            <param name="startTime"> The earliest point in time to get chat threads up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.DeleteChatThreadAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a thread. </summary>
+            <param name="chatThreadId"> Id of the thread to be deleted. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.DeleteChatThread(System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a thread. </summary>
+            <param name="chatThreadId"> Id of the thread to be deleted. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.ListChatThreadsNextPageAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets the list of chat threads of a user. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="maxPageSize"> The maximum number of chat threads returned per page. </param>
+            <param name="startTime"> The earliest point in time to get chat threads up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatRestClient.ListChatThreadsNextPage(System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets the list of chat threads of a user. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="maxPageSize"> The maximum number of chat threads returned per page. </param>
+            <param name="startTime"> The earliest point in time to get chat threads up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.#ctor(Azure.Core.Pipeline.ClientDiagnostics,Azure.Core.Pipeline.HttpPipeline,System.String,System.String)">
+            <summary> Initializes a new instance of ChatThreadRestClient. </summary>
+            <param name="clientDiagnostics"> The handler for diagnostic messaging in the client. </param>
+            <param name="pipeline"> The HTTP pipeline for sending and receiving REST requests and responses. </param>
+            <param name="endpoint"> The endpoint of the Azure Communication resource. </param>
+            <param name="apiVersion"> Api Version. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="endpoint" /> or <paramref name="apiVersion" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatReadReceiptsAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets chat message read receipts for a thread. </summary>
+            <param name="chatThreadId"> Thread id to get the chat message read receipts for. </param>
+            <param name="maxPageSize"> The maximum number of chat message read receipts to be returned per page. </param>
+            <param name="skip"> Skips chat message read receipts up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatReadReceipts(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets chat message read receipts for a thread. </summary>
+            <param name="chatThreadId"> Thread id to get the chat message read receipts for. </param>
+            <param name="maxPageSize"> The maximum number of chat message read receipts to be returned per page. </param>
+            <param name="skip"> Skips chat message read receipts up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.SendChatReadReceiptAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Sends a read receipt event to a thread, on behalf of a user. </summary>
+            <param name="chatThreadId"> Thread id to send the read receipt event to. </param>
+            <param name="chatMessageId"> Id of the latest chat message read by the user. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.SendChatReadReceipt(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Sends a read receipt event to a thread, on behalf of a user. </summary>
+            <param name="chatThreadId"> Thread id to send the read receipt event to. </param>
+            <param name="chatMessageId"> Id of the latest chat message read by the user. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.SendChatMessageAsync(System.String,System.String,System.String,System.Nullable{Azure.Communication.Chat.ChatMessageType},System.Threading.CancellationToken)">
+            <summary> Sends a message to a thread. </summary>
+            <param name="chatThreadId"> The thread id to send the message to. </param>
+            <param name="content"> Chat message content. </param>
+            <param name="senderDisplayName"> The display name of the chat message sender. This property is used to populate sender name for push notifications. </param>
+            <param name="type"> The chat message type. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="content" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.SendChatMessage(System.String,System.String,System.String,System.Nullable{Azure.Communication.Chat.ChatMessageType},System.Threading.CancellationToken)">
+            <summary> Sends a message to a thread. </summary>
+            <param name="chatThreadId"> The thread id to send the message to. </param>
+            <param name="content"> Chat message content. </param>
+            <param name="senderDisplayName"> The display name of the chat message sender. This property is used to populate sender name for push notifications. </param>
+            <param name="type"> The chat message type. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="content" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatMessagesAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets a list of messages from a thread. </summary>
+            <param name="chatThreadId"> The thread id of the message. </param>
+            <param name="maxPageSize"> The maximum number of messages to be returned per page. </param>
+            <param name="startTime"> The earliest point in time to get messages up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatMessages(System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets a list of messages from a thread. </summary>
+            <param name="chatThreadId"> The thread id of the message. </param>
+            <param name="maxPageSize"> The maximum number of messages to be returned per page. </param>
+            <param name="startTime"> The earliest point in time to get messages up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.GetChatMessageAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Gets a message by id. </summary>
+            <param name="chatThreadId"> The thread id to which the message was sent. </param>
+            <param name="chatMessageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.GetChatMessage(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Gets a message by id. </summary>
+            <param name="chatThreadId"> The thread id to which the message was sent. </param>
+            <param name="chatMessageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.UpdateChatMessageAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Updates a message. </summary>
+            <param name="chatThreadId"> The thread id to which the message was sent. </param>
+            <param name="chatMessageId"> The message id. </param>
+            <param name="content"> Chat message content. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.UpdateChatMessage(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Updates a message. </summary>
+            <param name="chatThreadId"> The thread id to which the message was sent. </param>
+            <param name="chatMessageId"> The message id. </param>
+            <param name="content"> Chat message content. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.DeleteChatMessageAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a message. </summary>
+            <param name="chatThreadId"> The thread id to which the message was sent. </param>
+            <param name="chatMessageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.DeleteChatMessage(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Deletes a message. </summary>
+            <param name="chatThreadId"> The thread id to which the message was sent. </param>
+            <param name="chatMessageId"> The message id. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.SendTypingNotificationAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Posts a typing event to a thread, on behalf of a user. </summary>
+            <param name="chatThreadId"> Id of the thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.SendTypingNotification(System.String,System.Threading.CancellationToken)">
+            <summary> Posts a typing event to a thread, on behalf of a user. </summary>
+            <param name="chatThreadId"> Id of the thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatParticipantsAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets the participants of a thread. </summary>
+            <param name="chatThreadId"> Thread id to get participants for. </param>
+            <param name="maxPageSize"> The maximum number of participants to be returned per page. </param>
+            <param name="skip"> Skips participants up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatParticipants(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets the participants of a thread. </summary>
+            <param name="chatThreadId"> Thread id to get participants for. </param>
+            <param name="maxPageSize"> The maximum number of participants to be returned per page. </param>
+            <param name="skip"> Skips participants up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.RemoveChatParticipantAsync(System.String,System.String,Azure.Communication.CommunicationUserIdentifierModel,Azure.Communication.PhoneNumberIdentifierModel,Azure.Communication.MicrosoftTeamsUserIdentifierModel,System.Threading.CancellationToken)">
+            <summary> Remove a participant from a thread. </summary>
+            <param name="chatThreadId"> Thread id to remove the participant from. </param>
+            <param name="rawId"> Raw Id of the identifier. Optional in requests, required in responses. </param>
+            <param name="communicationUser"> The communication user. </param>
+            <param name="phoneNumber"> The phone number. </param>
+            <param name="microsoftTeamsUser"> The Microsoft Teams user. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.RemoveChatParticipant(System.String,System.String,Azure.Communication.CommunicationUserIdentifierModel,Azure.Communication.PhoneNumberIdentifierModel,Azure.Communication.MicrosoftTeamsUserIdentifierModel,System.Threading.CancellationToken)">
+            <summary> Remove a participant from a thread. </summary>
+            <param name="chatThreadId"> Thread id to remove the participant from. </param>
+            <param name="rawId"> Raw Id of the identifier. Optional in requests, required in responses. </param>
+            <param name="communicationUser"> The communication user. </param>
+            <param name="phoneNumber"> The phone number. </param>
+            <param name="microsoftTeamsUser"> The Microsoft Teams user. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.AddChatParticipantsAsync(System.String,System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipantInternal},System.Threading.CancellationToken)">
+            <summary> Adds thread participants to a thread. If participants already exist, no change occurs. </summary>
+            <param name="chatThreadId"> Id of the thread to add participants to. </param>
+            <param name="participants"> Participants to add to a chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="participants" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.AddChatParticipants(System.String,System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipantInternal},System.Threading.CancellationToken)">
+            <summary> Adds thread participants to a thread. If participants already exist, no change occurs. </summary>
+            <param name="chatThreadId"> Id of the thread to add participants to. </param>
+            <param name="participants"> Participants to add to a chat thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> or <paramref name="participants" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.UpdateChatThreadPropertiesAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Updates a thread's properties. </summary>
+            <param name="chatThreadId"> The id of the thread to update. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.UpdateChatThreadProperties(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Updates a thread's properties. </summary>
+            <param name="chatThreadId"> The id of the thread to update. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.GetChatThreadPropertiesAsync(System.String,System.Threading.CancellationToken)">
+            <summary> Gets a chat thread's properties. </summary>
+            <param name="chatThreadId"> Id of the thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.GetChatThreadProperties(System.String,System.Threading.CancellationToken)">
+            <summary> Gets a chat thread's properties. </summary>
+            <param name="chatThreadId"> Id of the thread. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatReadReceiptsNextPageAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets chat message read receipts for a thread. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="chatThreadId"> Thread id to get the chat message read receipts for. </param>
+            <param name="maxPageSize"> The maximum number of chat message read receipts to be returned per page. </param>
+            <param name="skip"> Skips chat message read receipts up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> or <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatReadReceiptsNextPage(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets chat message read receipts for a thread. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="chatThreadId"> Thread id to get the chat message read receipts for. </param>
+            <param name="maxPageSize"> The maximum number of chat message read receipts to be returned per page. </param>
+            <param name="skip"> Skips chat message read receipts up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> or <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatMessagesNextPageAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets a list of messages from a thread. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="chatThreadId"> The thread id of the message. </param>
+            <param name="maxPageSize"> The maximum number of messages to be returned per page. </param>
+            <param name="startTime"> The earliest point in time to get messages up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> or <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatMessagesNextPage(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <summary> Gets a list of messages from a thread. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="chatThreadId"> The thread id of the message. </param>
+            <param name="maxPageSize"> The maximum number of messages to be returned per page. </param>
+            <param name="startTime"> The earliest point in time to get messages up to. The timestamp should be in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> or <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatParticipantsNextPageAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets the participants of a thread. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="chatThreadId"> Thread id to get participants for. </param>
+            <param name="maxPageSize"> The maximum number of participants to be returned per page. </param>
+            <param name="skip"> Skips participants up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> or <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadRestClient.ListChatParticipantsNextPage(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <summary> Gets the participants of a thread. </summary>
+            <param name="nextLink"> The URL to the next page of results. </param>
+            <param name="chatThreadId"> Thread id to get participants for. </param>
+            <param name="maxPageSize"> The maximum number of participants to be returned per page. </param>
+            <param name="skip"> Skips participants up to a specified position in response. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="nextLink" /> or <paramref name="chatThreadId" /> is null. </exception>
+        </member>
+        <member name="T:Azure.Communication.Chat.AddChatParticipantsRequest">
+            <summary> Participants to be added to the thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.AddChatParticipantsRequest.#ctor(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipantInternal})">
+            <summary> Initializes a new instance of AddChatParticipantsRequest. </summary>
+            <param name="participants"> Participants to add to a chat thread. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="participants" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.AddChatParticipantsRequest.Participants">
+            <summary> Participants to add to a chat thread. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.AddChatParticipantsResult">
+            <summary> Result of the add chat participants operation. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.AddChatParticipantsResult.#ctor">
+            <summary> Initializes a new instance of AddChatParticipantsResult. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.AddChatParticipantsResult.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatError})">
+            <summary> Initializes a new instance of AddChatParticipantsResult. </summary>
+            <param name="invalidParticipants"> The participants that failed to be added to the chat thread. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.AddChatParticipantsResult.InvalidParticipants">
+            <summary> The participants that failed to be added to the chat thread. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatError">
+            <summary> The Communication Services error. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatError.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of ChatError. </summary>
+            <param name="code"> The error code. </param>
+            <param name="message"> The error message. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="code" /> or <paramref name="message" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatError.#ctor(System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatError},Azure.Communication.Chat.ChatError)">
+            <summary> Initializes a new instance of ChatError. </summary>
+            <param name="code"> The error code. </param>
+            <param name="message"> The error message. </param>
+            <param name="target"> The error target. </param>
+            <param name="details"> Further details about specific errors that led to this error. </param>
+            <param name="innerError"> The inner error if any. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatError.Code">
+            <summary> The error code. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatError.Message">
+            <summary> The error message. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatError.Target">
+            <summary> The error target. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatError.Details">
+            <summary> Further details about specific errors that led to this error. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatError.InnerError">
+            <summary> The inner error if any. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatErrorResponse">
+            <summary> The Communication Services error. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatErrorResponse.#ctor(Azure.Communication.Chat.ChatError)">
+            <summary> Initializes a new instance of ChatErrorResponse. </summary>
+            <param name="error"> The Communication Services error. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="error" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatErrorResponse.Error">
+            <summary> The Communication Services error. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageContentInternal">
+            <summary> Content of a chat message. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageContentInternal.#ctor">
+            <summary> Initializes a new instance of ChatMessageContentInternal. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageContentInternal.#ctor(System.String,System.String,System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatParticipantInternal},Azure.Communication.CommunicationIdentifierModel)">
+            <summary> Initializes a new instance of ChatMessageContentInternal. </summary>
+            <param name="message"> Chat message content for messages of types text or html. </param>
+            <param name="topic"> Chat message content for messages of type topicUpdated. </param>
+            <param name="participants"> Chat message content for messages of types participantAdded or participantRemoved. </param>
+            <param name="initiatorCommunicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContentInternal.Message">
+            <summary> Chat message content for messages of types text or html. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContentInternal.Topic">
+            <summary> Chat message content for messages of type topicUpdated. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContentInternal.Participants">
+            <summary> Chat message content for messages of types participantAdded or participantRemoved. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContentInternal.InitiatorCommunicationIdentifier">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageInternal">
+            <summary> Chat message. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageInternal.#ctor(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.String,System.DateTimeOffset)">
+            <summary> Initializes a new instance of ChatMessageInternal. </summary>
+            <param name="id"> The id of the chat message. This id is server generated. </param>
+            <param name="type"> The chat message type. </param>
+            <param name="sequenceId"> Sequence of the chat message in the conversation. </param>
+            <param name="version"> Version of the chat message. </param>
+            <param name="createdOn"> The timestamp when the chat message arrived at the server. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="sequenceId" />, or <paramref name="version" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageInternal.#ctor(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.String,Azure.Communication.Chat.ChatMessageContentInternal,System.String,System.DateTimeOffset,Azure.Communication.CommunicationIdentifierModel,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary> Initializes a new instance of ChatMessageInternal. </summary>
+            <param name="id"> The id of the chat message. This id is server generated. </param>
+            <param name="type"> The chat message type. </param>
+            <param name="sequenceId"> Sequence of the chat message in the conversation. </param>
+            <param name="version"> Version of the chat message. </param>
+            <param name="content"> Content of a chat message. </param>
+            <param name="senderDisplayName"> The display name of the chat message sender. This property is used to populate sender name for push notifications. </param>
+            <param name="createdOn"> The timestamp when the chat message arrived at the server. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="senderCommunicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+            <param name="deletedOn"> The timestamp (if applicable) when the message was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="editedOn"> The last timestamp (if applicable) when the message was edited. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.Id">
+            <summary> The id of the chat message. This id is server generated. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.Type">
+            <summary> The chat message type. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.SequenceId">
+            <summary> Sequence of the chat message in the conversation. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.Version">
+            <summary> Version of the chat message. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.Content">
+            <summary> Content of a chat message. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.SenderDisplayName">
+            <summary> The display name of the chat message sender. This property is used to populate sender name for push notifications. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.CreatedOn">
+            <summary> The timestamp when the chat message arrived at the server. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.SenderCommunicationIdentifier">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.DeletedOn">
+            <summary> The timestamp (if applicable) when the message was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageInternal.EditedOn">
+            <summary> The last timestamp (if applicable) when the message was edited. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageReadReceiptInternal">
+            <summary> A chat message read receipt indicates the time a chat message was read by a recipient. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageReadReceiptInternal.#ctor(Azure.Communication.CommunicationIdentifierModel,System.String,System.DateTimeOffset)">
+            <summary> Initializes a new instance of ChatMessageReadReceiptInternal. </summary>
+            <param name="senderCommunicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+            <param name="chatMessageId"> Id of the chat message that has been read. This id is generated by the server. </param>
+            <param name="readOn"> The time at which the message was read. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="senderCommunicationIdentifier" /> or <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceiptInternal.SenderCommunicationIdentifier">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceiptInternal.ChatMessageId">
+            <summary> Id of the chat message that has been read. This id is generated by the server. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceiptInternal.ReadOn">
+            <summary> The time at which the message was read. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageReadReceiptsCollection">
+            <summary> A paged collection of chat message read receipts. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageReadReceiptsCollection.#ctor(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatMessageReadReceiptInternal})">
+            <summary> Initializes a new instance of ChatMessageReadReceiptsCollection. </summary>
+            <param name="value"> Collection of chat message read receipts. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageReadReceiptsCollection.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatMessageReadReceiptInternal},System.String)">
+            <summary> Initializes a new instance of ChatMessageReadReceiptsCollection. </summary>
+            <param name="value"> Collection of chat message read receipts. </param>
+            <param name="nextLink"> If there are more chat message read receipts that can be retrieved, the next link will be populated. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceiptsCollection.Value">
+            <summary> Collection of chat message read receipts. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceiptsCollection.NextLink">
+            <summary> If there are more chat message read receipts that can be retrieved, the next link will be populated. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessagesCollection">
+            <summary> Collection of chat messages for a particular chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessagesCollection.#ctor(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatMessageInternal})">
+            <summary> Initializes a new instance of ChatMessagesCollection. </summary>
+            <param name="value"> Collection of chat messages. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessagesCollection.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatMessageInternal},System.String)">
+            <summary> Initializes a new instance of ChatMessagesCollection. </summary>
+            <param name="value"> Collection of chat messages. </param>
+            <param name="nextLink"> If there are more chat messages that can be retrieved, the next link will be populated. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessagesCollection.Value">
+            <summary> Collection of chat messages. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessagesCollection.NextLink">
+            <summary> If there are more chat messages that can be retrieved, the next link will be populated. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageType">
+            <summary> The chat message type. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Communication.Chat.ChatMessageType" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageType.Text">
+            <summary> text. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageType.Html">
+            <summary> html. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageType.TopicUpdated">
+            <summary> topicUpdated. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageType.ParticipantAdded">
+            <summary> participantAdded. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageType.ParticipantRemoved">
+            <summary> participantRemoved. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.op_Equality(Azure.Communication.Chat.ChatMessageType,Azure.Communication.Chat.ChatMessageType)">
+            <summary> Determines if two <see cref="T:Azure.Communication.Chat.ChatMessageType" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.op_Inequality(Azure.Communication.Chat.ChatMessageType,Azure.Communication.Chat.ChatMessageType)">
+            <summary> Determines if two <see cref="T:Azure.Communication.Chat.ChatMessageType" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.op_Implicit(System.String)~Azure.Communication.Chat.ChatMessageType">
+            <summary> Converts a string to a <see cref="T:Azure.Communication.Chat.ChatMessageType" />. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.Equals(Azure.Communication.Chat.ChatMessageType)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatMessageType.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatParticipantInternal">
+            <summary> A participant of the chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatParticipantInternal.#ctor(Azure.Communication.CommunicationIdentifierModel)">
+            <summary> Initializes a new instance of ChatParticipantInternal. </summary>
+            <param name="communicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="communicationIdentifier" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatParticipantInternal.#ctor(Azure.Communication.CommunicationIdentifierModel,System.String,System.Nullable{System.DateTimeOffset})">
+            <summary> Initializes a new instance of ChatParticipantInternal. </summary>
+            <param name="communicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+            <param name="displayName"> Display name for the chat participant. </param>
+            <param name="shareHistoryTime"> Time from which the chat history is shared with the participant. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipantInternal.CommunicationIdentifier">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipantInternal.DisplayName">
+            <summary> Display name for the chat participant. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipantInternal.ShareHistoryTime">
+            <summary> Time from which the chat history is shared with the participant. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatParticipantsCollection">
+            <summary> Collection of participants belong to a particular thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatParticipantsCollection.#ctor(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatParticipantInternal})">
+            <summary> Initializes a new instance of ChatParticipantsCollection. </summary>
+            <param name="value"> Chat participants. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatParticipantsCollection.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatParticipantInternal},System.String)">
+            <summary> Initializes a new instance of ChatParticipantsCollection. </summary>
+            <param name="value"> Chat participants. </param>
+            <param name="nextLink"> If there are more chat participants that can be retrieved, the next link will be populated. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipantsCollection.Value">
+            <summary> Chat participants. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipantsCollection.NextLink">
+            <summary> If there are more chat participants that can be retrieved, the next link will be populated. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatThreadItem">
+            <summary> Summary information of a chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadItem.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of ChatThreadItem. </summary>
+            <param name="id"> Chat thread id. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> or <paramref name="topic" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadItem.#ctor(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary> Initializes a new instance of ChatThreadItem. </summary>
+            <param name="id"> Chat thread id. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="deletedOn"> The timestamp when the chat thread was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="lastMessageReceivedOn"> The timestamp when the last message arrived at the server. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadItem.Id">
+            <summary> Chat thread id. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadItem.Topic">
+            <summary> Chat thread topic. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadItem.DeletedOn">
+            <summary> The timestamp when the chat thread was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadItem.LastMessageReceivedOn">
+            <summary> The timestamp when the last message arrived at the server. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatThreadPropertiesInternal">
+            <summary> Chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadPropertiesInternal.#ctor(System.String,System.String,System.DateTimeOffset,Azure.Communication.CommunicationIdentifierModel)">
+            <summary> Initializes a new instance of ChatThreadPropertiesInternal. </summary>
+            <param name="id"> Chat thread id. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="createdOn"> The timestamp when the chat thread was created. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="createdByCommunicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="topic" />, or <paramref name="createdByCommunicationIdentifier" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadPropertiesInternal.#ctor(System.String,System.String,System.DateTimeOffset,Azure.Communication.CommunicationIdentifierModel,System.Nullable{System.DateTimeOffset})">
+            <summary> Initializes a new instance of ChatThreadPropertiesInternal. </summary>
+            <param name="id"> Chat thread id. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="createdOn"> The timestamp when the chat thread was created. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="createdByCommunicationIdentifier"> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </param>
+            <param name="deletedOn"> The timestamp when the chat thread was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadPropertiesInternal.Id">
+            <summary> Chat thread id. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadPropertiesInternal.Topic">
+            <summary> Chat thread topic. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadPropertiesInternal.CreatedOn">
+            <summary> The timestamp when the chat thread was created. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadPropertiesInternal.CreatedByCommunicationIdentifier">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadPropertiesInternal.DeletedOn">
+            <summary> The timestamp when the chat thread was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatThreadsItemCollection">
+            <summary> Collection of chat threads. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadsItemCollection.#ctor(System.Collections.Generic.IEnumerable{Azure.Communication.Chat.ChatThreadItem})">
+            <summary> Initializes a new instance of ChatThreadsItemCollection. </summary>
+            <param name="value"> Collection of chat threads. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatThreadsItemCollection.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatThreadItem},System.String)">
+            <summary> Initializes a new instance of ChatThreadsItemCollection. </summary>
+            <param name="value"> Collection of chat threads. </param>
+            <param name="nextLink"> If there are more chat threads that can be retrieved, the next link will be populated. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadsItemCollection.Value">
+            <summary> Collection of chat threads. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadsItemCollection.NextLink">
+            <summary> If there are more chat threads that can be retrieved, the next link will be populated. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.CreateChatThreadRequest">
+            <summary> Request payload for creating a chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.CreateChatThreadRequest.#ctor(System.String)">
+            <summary> Initializes a new instance of CreateChatThreadRequest. </summary>
+            <param name="topic"> The chat thread topic. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="topic" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.CreateChatThreadRequest.Topic">
+            <summary> The chat thread topic. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.CreateChatThreadRequest.Participants">
+            <summary> Participants to be added to the chat thread. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.CreateChatThreadResultInternal">
+            <summary> Result of the create chat thread operation. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.CreateChatThreadResultInternal.#ctor">
+            <summary> Initializes a new instance of CreateChatThreadResultInternal. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.CreateChatThreadResultInternal.#ctor(Azure.Communication.Chat.ChatThreadPropertiesInternal,System.Collections.Generic.IReadOnlyList{Azure.Communication.Chat.ChatError})">
+            <summary> Initializes a new instance of CreateChatThreadResultInternal. </summary>
+            <param name="chatThread"> Chat thread. </param>
+            <param name="invalidParticipants"> The participants that failed to be added to the chat thread. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.CreateChatThreadResultInternal.ChatThread">
+            <summary> Chat thread. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.CreateChatThreadResultInternal.InvalidParticipants">
+            <summary> The participants that failed to be added to the chat thread. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.SendChatMessageRequest">
+            <summary> Details of the message to send. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.SendChatMessageRequest.#ctor(System.String)">
+            <summary> Initializes a new instance of SendChatMessageRequest. </summary>
+            <param name="content"> Chat message content. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="content" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.SendChatMessageRequest.Content">
+            <summary> Chat message content. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.SendChatMessageRequest.SenderDisplayName">
+            <summary> The display name of the chat message sender. This property is used to populate sender name for push notifications. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.SendChatMessageRequest.Type">
+            <summary> The chat message type. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.SendChatMessageResultInternal">
+            <summary> Result of the send message operation. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.SendChatMessageResultInternal.#ctor(System.String)">
+            <summary> Initializes a new instance of SendChatMessageResultInternal. </summary>
+            <param name="id"> A server-generated message id. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.SendChatMessageResultInternal.Id">
+            <summary> A server-generated message id. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.SendReadReceiptRequest">
+            <summary> Request payload for sending a read receipt. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.SendReadReceiptRequest.#ctor(System.String)">
+            <summary> Initializes a new instance of SendReadReceiptRequest. </summary>
+            <param name="chatMessageId"> Id of the latest chat message read by the user. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="chatMessageId" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.Chat.SendReadReceiptRequest.ChatMessageId">
+            <summary> Id of the latest chat message read by the user. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.UpdateChatMessageRequest">
+            <summary> Request payload for updating a chat message. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.UpdateChatMessageRequest.#ctor">
+            <summary> Initializes a new instance of UpdateChatMessageRequest. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.UpdateChatMessageRequest.Content">
+            <summary> Chat message content. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.UpdateChatThreadRequest">
+            <summary> Request payload for updating a chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.UpdateChatThreadRequest.#ctor">
+            <summary> Initializes a new instance of UpdateChatThreadRequest. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.UpdateChatThreadRequest.Topic">
+            <summary> Chat thread topic. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessage">
+            <summary> Chat message. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.Id">
+            <summary> The id of the chat message. This id is server generated. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.Type">
+            <summary> The chat message type. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.SequenceId">
+            <summary> Sequence of the chat message in the conversation. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.Version">
+            <summary> Version of the chat message. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.Content">
+            <summary> Content of a chat message. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.SenderDisplayName">
+            <summary> The display name of the chat message sender. This property is used to populate sender name for push notifications. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.CreatedOn">
+            <summary> The timestamp when the chat message arrived at the server. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.Sender">
+            <summary> The identifier of the chat message sender. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.DeletedOn">
+            <summary> The timestamp (if applicable) when the message was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessage.EditedOn">
+            <summary> The last timestamp (if applicable) when the message was edited. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageContent">
+            <summary> Initializes a new instance of ChatMessageContent. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContent.Message">
+            <summary> Chat message content for type 'text' or 'html' messages. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContent.Topic">
+            <summary> Chat message content for type 'topicUpdated' messages. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContent.Participants">
+            <summary> Chat message content for type 'participantAdded' or 'participantRemoved' messages. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageContent.Initiator">
+            <summary> Chat message content for type 'participantAdded' or 'participantRemoved' messages. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatMessageReadReceipt">
+            <summary> A chat message read receipt indicates the time a chat message was read by a recipient. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceipt.Sender">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceipt.ChatMessageId">
+            <summary> Id of the chat message that has been read. This id is generated by the server. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatMessageReadReceipt.ReadOn">
+            <summary> The time at which the message was read. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatModelFactory">
+            <summary>
+            Model factory that enables mocking for the Chat library.
+            </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatModelFactory.ChatMessage(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.String,Azure.Communication.Chat.ChatMessageContent,System.String,System.DateTimeOffset,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Initializes a new instance of the <see cref="M:Azure.Communication.Chat.ChatModelFactory.ChatMessage(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.String,Azure.Communication.Chat.ChatMessageContent,System.String,System.DateTimeOffset,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" /> class.
+            </summary>
+            <param name="id"> The id of the chat message. </param>
+            <param name="type"> The chat message priority. </param>
+            <param name="sequenceId"> The sequenceId of the chat message. </param>
+            <param name="version"> Version of the chat message. </param>
+            <param name="content"> Content of the chat message. </param>
+            <param name="senderDisplayName"> The display name of the chat message sender. </param>
+            <param name="createdOn"> The timestamp when the chat message arrived at the server. </param>
+            <param name="senderId"> The id of the chat message sender. </param>
+            <param name="deletedOn"> The timestamp when the chat message was deleted. </param>
+            <param name="editedOn"> The timestamp when the chat message was edited. </param>
+            <returns>A new <see cref="M:Azure.Communication.Chat.ChatModelFactory.ChatMessage(System.String,Azure.Communication.Chat.ChatMessageType,System.String,System.String,Azure.Communication.Chat.ChatMessageContent,System.String,System.DateTimeOffset,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" /> instance for mocking.</returns>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatModelFactory.ChatThreadItem(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Initializes a new instance of the <see cref="M:Azure.Communication.Chat.ChatModelFactory.ChatThreadItem(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" /> class.
+            </summary>
+            <param name="id"> Chat thread id. </param>
+            <param name="topic"> Chat thread topic. </param>
+            <param name="deletedOn"> The timestamp when the chat thread was deleted. The timestamp is in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <param name="lastMessageReceivedOn"> The timestamp when the last message arrived at the server. The timestamp is in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </param>
+            <returns>A new <see cref="M:Azure.Communication.Chat.ChatModelFactory.ChatThreadItem(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})" /> instance for mocking.</returns>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatModelFactory.ChatMessageReadReceipt(Azure.Communication.CommunicationIdentifier,System.String,System.DateTimeOffset)">
+            <summary>
+            Initializes a new instance of the <see cref="M:Azure.Communication.Chat.ChatModelFactory.ChatMessageReadReceipt(Azure.Communication.CommunicationIdentifier,System.String,System.DateTimeOffset)" /> class.
+            </summary>
+            <param name="sender">CommunicationIdentifier of the of message sender. </param>
+            <param name="chatMessageId"> Id for the chat message that has been read. </param>
+            <param name="readOn"> Read receipt timestamp. </param>
+            <returns>A new <see cref="M:Azure.Communication.Chat.ChatModelFactory.ChatMessageReadReceipt(Azure.Communication.CommunicationIdentifier,System.String,System.DateTimeOffset)" /> instance for mocking.</returns>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatParticipant">
+            <summary> A member of the chat thread. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.ChatParticipant.#ctor(Azure.Communication.CommunicationIdentifier)">
+            <summary>
+             A member of the chat thread.
+            </summary>
+            <param name="identifier">Instance of <see cref="T:Azure.Communication.CommunicationIdentifier" />.</param>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipant.User">
+            <summary>Instance of <see cref="T:Azure.Communication.CommunicationIdentifier" />. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipant.DisplayName">
+            <summary> Display name for the chat thread member. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatParticipant.ShareHistoryTime">
+            <summary> Time from which the chat history is shared with the member. The timestamp is in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.ChatThreadProperties">
+            <summary>The Chat Thread Properties.</summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadProperties.Id">
+            <summary> Chat thread id. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadProperties.Topic">
+            <summary> Chat thread topic. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadProperties.CreatedOn">
+            <summary> The timestamp when the chat thread was created. The timestamp is in ISO8601 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadProperties.CreatedBy">
+            <summary> Identifier of the chat thread owner. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.ChatThreadProperties.DeletedOn">
+            <summary>The timestamp when the chat thread was deleted. The timestamp is in RFC3339 format: `yyyy-MM-ddTHH:mm:ssZ`. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.CreateChatThreadResult">
+            <summary> Result of the create chat thread operation. </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.CreateChatThreadResult.#ctor(Azure.Communication.Chat.CreateChatThreadResultInternal)">
+            <summary> Initializes a new instance of CreateChatThreadResult. </summary>
+            <param name="createChatThreadResultInternal"> Chat thread. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.CreateChatThreadResult.ChatThread">
+            <summary> Chat thread. </summary>
+        </member>
+        <member name="P:Azure.Communication.Chat.CreateChatThreadResult.InvalidParticipants">
+            <summary> Errors encountered during the creation of the chat thread. </summary>
+        </member>
+        <member name="T:Azure.Communication.Chat.SendChatMessageResult">
+            <summary>
+            SendChatMessageResult
+            </summary>
+        </member>
+        <member name="M:Azure.Communication.Chat.SendChatMessageResult.#ctor(Azure.Communication.Chat.SendChatMessageResultInternal)">
+            <summary> Initializes a new instance of SendChatMessageResult. </summary>
+            <param name="sendChatMessageResultInternal"> send chat message result. </param>
+        </member>
+        <member name="P:Azure.Communication.Chat.SendChatMessageResult.Id">
+            <summary> A server-generated message id. </summary>
+        </member>
+        <member name="T:Azure.Communication.CommunicationCloudEnvironmentModel">
+            <summary> The cloud that the identifier belongs to. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Communication.CommunicationCloudEnvironmentModel" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.CommunicationCloudEnvironmentModel.Public">
+            <summary> public. </summary>
+        </member>
+        <member name="P:Azure.Communication.CommunicationCloudEnvironmentModel.Dod">
+            <summary> dod. </summary>
+        </member>
+        <member name="P:Azure.Communication.CommunicationCloudEnvironmentModel.Gcch">
+            <summary> gcch. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.op_Equality(Azure.Communication.CommunicationCloudEnvironmentModel,Azure.Communication.CommunicationCloudEnvironmentModel)">
+            <summary> Determines if two <see cref="T:Azure.Communication.CommunicationCloudEnvironmentModel" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.op_Inequality(Azure.Communication.CommunicationCloudEnvironmentModel,Azure.Communication.CommunicationCloudEnvironmentModel)">
+            <summary> Determines if two <see cref="T:Azure.Communication.CommunicationCloudEnvironmentModel" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.op_Implicit(System.String)~Azure.Communication.CommunicationCloudEnvironmentModel">
+            <summary> Converts a string to a <see cref="T:Azure.Communication.CommunicationCloudEnvironmentModel" />. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.Equals(Azure.Communication.CommunicationCloudEnvironmentModel)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Communication.CommunicationCloudEnvironmentModel.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Communication.CommunicationIdentifierModel">
+            <summary> Identifies a participant in Azure Communication services. A participant is, for example, a phone number or an Azure communication user. This model must be interpreted as a union: Apart from rawId, at most one further property may be set. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationIdentifierModel.#ctor">
+            <summary> Initializes a new instance of CommunicationIdentifierModel. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationIdentifierModel.#ctor(System.String,Azure.Communication.CommunicationUserIdentifierModel,Azure.Communication.PhoneNumberIdentifierModel,Azure.Communication.MicrosoftTeamsUserIdentifierModel)">
+            <summary> Initializes a new instance of CommunicationIdentifierModel. </summary>
+            <param name="rawId"> Raw Id of the identifier. Optional in requests, required in responses. </param>
+            <param name="communicationUser"> The communication user. </param>
+            <param name="phoneNumber"> The phone number. </param>
+            <param name="microsoftTeamsUser"> The Microsoft Teams user. </param>
+        </member>
+        <member name="P:Azure.Communication.CommunicationIdentifierModel.RawId">
+            <summary> Raw Id of the identifier. Optional in requests, required in responses. </summary>
+        </member>
+        <member name="P:Azure.Communication.CommunicationIdentifierModel.CommunicationUser">
+            <summary> The communication user. </summary>
+        </member>
+        <member name="P:Azure.Communication.CommunicationIdentifierModel.PhoneNumber">
+            <summary> The phone number. </summary>
+        </member>
+        <member name="P:Azure.Communication.CommunicationIdentifierModel.MicrosoftTeamsUser">
+            <summary> The Microsoft Teams user. </summary>
+        </member>
+        <member name="T:Azure.Communication.CommunicationUserIdentifierModel">
+            <summary> A user that got created with an Azure Communication Services resource. </summary>
+        </member>
+        <member name="M:Azure.Communication.CommunicationUserIdentifierModel.#ctor(System.String)">
+            <summary> Initializes a new instance of CommunicationUserIdentifierModel. </summary>
+            <param name="id"> The Id of the communication user. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.CommunicationUserIdentifierModel.Id">
+            <summary> The Id of the communication user. </summary>
+        </member>
+        <member name="T:Azure.Communication.MicrosoftTeamsUserIdentifierModel">
+            <summary> A Microsoft Teams user. </summary>
+        </member>
+        <member name="M:Azure.Communication.MicrosoftTeamsUserIdentifierModel.#ctor(System.String)">
+            <summary> Initializes a new instance of MicrosoftTeamsUserIdentifierModel. </summary>
+            <param name="userId"> The Id of the Microsoft Teams user. If not anonymous, this is the AAD object Id of the user. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="userId" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Communication.MicrosoftTeamsUserIdentifierModel.#ctor(System.String,System.Nullable{System.Boolean},System.Nullable{Azure.Communication.CommunicationCloudEnvironmentModel})">
+            <summary> Initializes a new instance of MicrosoftTeamsUserIdentifierModel. </summary>
+            <param name="userId"> The Id of the Microsoft Teams user. If not anonymous, this is the AAD object Id of the user. </param>
+            <param name="isAnonymous"> True if the Microsoft Teams user is anonymous. By default false if missing. </param>
+            <param name="cloud"> The cloud that the Microsoft Teams user belongs to. By default 'public' if missing. </param>
+        </member>
+        <member name="P:Azure.Communication.MicrosoftTeamsUserIdentifierModel.UserId">
+            <summary> The Id of the Microsoft Teams user. If not anonymous, this is the AAD object Id of the user. </summary>
+        </member>
+        <member name="P:Azure.Communication.MicrosoftTeamsUserIdentifierModel.IsAnonymous">
+            <summary> True if the Microsoft Teams user is anonymous. By default false if missing. </summary>
+        </member>
+        <member name="P:Azure.Communication.MicrosoftTeamsUserIdentifierModel.Cloud">
+            <summary> The cloud that the Microsoft Teams user belongs to. By default 'public' if missing. </summary>
+        </member>
+        <member name="T:Azure.Communication.PhoneNumberIdentifierModel">
+            <summary> A phone number. </summary>
+        </member>
+        <member name="M:Azure.Communication.PhoneNumberIdentifierModel.#ctor(System.String)">
+            <summary> Initializes a new instance of PhoneNumberIdentifierModel. </summary>
+            <param name="value"> The phone number in E.164 format. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Communication.PhoneNumberIdentifierModel.Value">
+            <summary> The phone number in E.164 format. </summary>
+        </member>
+        <member name="T:Azure.Core.AzureResourceProviderNamespaceAttribute">
+            <summary>
+            This attribute should be set on all client assemblies with value of one of the resource providers
+            from the https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-services-resource-providers list.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.Argument">
+            <summary>
+            Argument validation.
+            </summary>
+            <remarks>
+              <para>This class should be shared via source using Azure.Core.props and contain only common argument validation.
+                It is declared partial so that you can use the same familiar class name but extend it with project-specific validation.
+                To extend the functionality of this class, just declare your own partial <see cref="T:Azure.Core.Argument" /> class with project-specific methods.
+              </para>
+              <para>
+                Be sure to document exceptions thrown by these methods on your public methods.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNull``1(``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNull``1(System.Nullable{``0},System.String)">
+            <summary>
+            Throws if <paramref name="value" /> has not been initialized.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> has not been initialized.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty collection.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty collection.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty string.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null, an empty string, or consists only of white-space characters.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string or consists only of white-space characters.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotDefault``1(``0@,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is the default value for type <typeparamref name="T" />.
+            </summary>
+            <typeparam name="T">The type of structure to validate which implements <see cref="T:System.IEquatable`1" />.</typeparam>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is the default value for type <typeparamref name="T" />.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertInRange``1(``0,``0,``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is less than the <paramref name="minimum" /> or greater than the <paramref name="maximum" />.
+            </summary>
+            <typeparam name="T">The type of to validate which implements <see cref="T:System.IComparable`1" />.</typeparam>
+            <param name="value">The value to validate.</param>
+            <param name="minimum">The minimum value to compare.</param>
+            <param name="maximum">The maximum value to compare.</param>
+            <param name="name">The name of the parameter.</param>
+        </member>
+        <member name="T:Azure.Core.Pipeline.ActivityExtensions">
+            <summary>
+            HACK HACK HACK. Some runtime environments like Azure.Functions downgrade System.Diagnostic.DiagnosticSource package version causing method not found exceptions in customer apps
+            This type is a temporary workaround to avoid the issue.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.Pipeline.TaskExtensions.Enumerable`1">
+            <summary>
+            Both <see cref="T:Azure.Core.Pipeline.TaskExtensions.Enumerable`1" /> and <see cref="T:Azure.Core.Pipeline.TaskExtensions.Enumerator`1" /> are defined as public structs so that foreach can use duck typing
+            to call <see cref="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.GetEnumerator" /> and avoid heap memory allocation.
+            Please don't delete this method and don't make these types private.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Azure.Core.ArmOperationHelpers`1">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+            <typeparam name="T">The final result of the LRO.</typeparam>
+        </member>
+        <member name="P:Azure.Core.CodeGenModelAttribute.Usage">
+            <summary>
+            Gets or sets a coma separated list of additional model usage modes. Allowed values: model, error, intput, output.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.CodeGenModelAttribute.Formats">
+            <summary>
+            Gets or sets a coma separated list of additional model serialization formats.
+            </summary>
+        </member>
+        <member name="M:Azure.Core.ChangeTrackingDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="P:Azure.Core.ChangeTrackingDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TKey@TValue}#Keys">
+            <summary>Gets an enumerable collection that contains the keys in the read-only dictionary.</summary><returns>An enumerable collection that contains the keys in the read-only dictionary.</returns>
+        </member>
+        <member name="P:Azure.Core.ChangeTrackingDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TKey@TValue}#Values">
+            <summary>Gets an enumerable collection that contains the values in the read-only dictionary.</summary><returns>An enumerable collection that contains the values in the read-only dictionary.</returns>
+        </member>
+        <member name="M:Azure.Core.ChangeTrackingList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
+            <summary>Returns an enumerator that iterates through the collection.</summary><returns>An enumerator that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="P:Azure.Core.Pipeline.TaskExtensions.Enumerator`1.System#Collections#IEnumerator#Current">
+            <summary>Gets the element in the collection at the current position of the enumerator.</summary><returns>The element in the collection at the current position of the enumerator.</returns>
+        </member>
+    </members>
+</doc>

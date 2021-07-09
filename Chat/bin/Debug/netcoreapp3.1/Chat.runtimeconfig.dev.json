@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Kapadia\\.dotnet\\store\\|arch|\\|tfm|",
+      "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\packages"
+    ]
+  }
+}

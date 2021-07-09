@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\Chat.csproj": {}
+  },
+  "projects": {
+    "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\Chat.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\Chat.csproj",
+        "projectName": "Chat",
+        "projectPath": "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\Chat.csproj",
+        "packagesPath": "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\packages",
+        "outputPath": "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "D:\\Users\\Kapadia\\Downloads\\Chatbox-main\\Chatbox-main\\Chat\\NuGet.Config",
+          "C:\\Users\\Kapadia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Azure.Communication.Chat": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Azure.Communication.Common": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Azure.Communication.Identity": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.AspNetCore.SpaServices": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
