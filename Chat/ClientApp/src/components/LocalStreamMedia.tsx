@@ -1,4 +1,4 @@
-// © Microsoft Corporation. All rights reserved.
+
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Image, ImageFit, Label } from '@fluentui/react';

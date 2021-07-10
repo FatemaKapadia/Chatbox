@@ -1,4 +1,4 @@
-﻿// © Microsoft Corporation. All rights reserved.
+﻿
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,13 +6,14 @@ using System;
 
 namespace Chat
 {
-	public static class ServiceCollectionExtensions
+    public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddContosoServices(this IServiceCollection serviceCollection, IConfigurationSection chatConfigurationSection)
         {
             _ = serviceCollection ?? throw new ArgumentNullException(nameof(serviceCollection));
 
-            serviceCollection.Configure<ContosoSettings>(options => {
+            serviceCollection.Configure<ContosoSettings>(options =>
+            {
                 options.ChatGatewayUrl = ExtractApiChatGatewayUrl(chatConfigurationSection["ResourceConnectionString"]);
                 options.ResourceConnectionString = chatConfigurationSection["ResourceConnectionString"];
             });

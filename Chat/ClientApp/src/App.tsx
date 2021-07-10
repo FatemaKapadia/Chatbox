@@ -56,10 +56,8 @@ export default (): JSX.Element => {
 
   const getComponent = () => {
     if (page === 'home') {
-      console.log("home")
       return <HomeScreen />;
     } else if (page === 'configuration') {
-      console.log("configuration");
       return <ConfigurationScreen joinChatHandler={() => setPage('chat')} />;
     } else if (page === 'chat') {     
       return (

@@ -1,4 +1,4 @@
-﻿// © Microsoft Corporation. All rights reserved.
+﻿
 
 using Azure.Communication;
 using Azure.Communication.Identity;
@@ -24,7 +24,7 @@ namespace Chat
         }
 
         public async Task<AccessToken> GenerateTokenAsync(string resourceConnectionString, string identity)
-		{
+        {
             try
             {
                 var communicationIdentityClient = new CommunicationIdentityClient(resourceConnectionString);

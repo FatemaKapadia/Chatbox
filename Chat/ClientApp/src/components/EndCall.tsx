@@ -1,4 +1,3 @@
-// © Microsoft Corporation. All rights reserved.
 import React from 'react';
 import { DefaultButton, PrimaryButton, Stack } from '@fluentui/react';
 import { VideoCameraEmphasisIcon } from '@fluentui/react-icons-northstar';
@@ -19,7 +18,7 @@ export interface EndCallProps {
 }
 
 export default (props: EndCallProps): JSX.Element => {
-  const goHomePage = 'Go to homepage';
+  const goHomePage = 'Go to chatpage';
   const rejoinCall = 'Rejoin call';
   
   return (

@@ -1,4 +1,3 @@
-// © Microsoft Corporation. All rights reserved.
 import React, { useEffect } from 'react';
 import { Separator, Pivot, PivotItem, Stack } from '@fluentui/react';
 import { Call, LocalVideoStream, VideoDeviceInfo } from '@azure/communication-calling';

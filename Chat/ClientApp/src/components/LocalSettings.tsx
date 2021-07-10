@@ -1,4 +1,4 @@
-// © Microsoft Corporation. All rights reserved.
+
 import React from 'react';
 import { Stack, Dropdown, IDropdownOption } from '@fluentui/react';
 import { VideoDeviceInfo, AudioDeviceInfo, DeviceManager } from '@azure/communication-calling';

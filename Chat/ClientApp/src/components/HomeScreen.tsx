@@ -28,8 +28,8 @@ const imageStyleProps: IImageStyles = {
 export default (props: HomeScreenProps): JSX.Element => {
   const spinnerLabel = 'Creating a new chat thread...';
   const imageProps = { src: heroSVG.toString() };
-  const headerTitle = 'Exceptionally simple chat app';
-  const startChatButtonText = 'Start chat';
+  const headerTitle = 'Welcome to ConnectBox!';
+  const startChatButtonText = 'Start connecting';
 
   const [isCreatingThread, setIsCreatingThread] = useState(false);
 

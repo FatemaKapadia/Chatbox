@@ -1,4 +1,4 @@
-﻿// © Microsoft Corporation. All rights reserved.
+﻿
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +10,7 @@ using System;
 
 namespace Chat
 {
-	public class Startup
+    public class Startup
     {
         public IConfiguration Configuration { get; }
 
@@ -22,7 +22,7 @@ namespace Chat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IUserTokenManager, UserTokenManager>();
-            services.AddSingleton<IChatAdminThreadStore, InMemoryChatAdminThreadStore>();            
+            services.AddSingleton<IChatAdminThreadStore, InMemoryChatAdminThreadStore>();
 
             services.AddControllers();
 

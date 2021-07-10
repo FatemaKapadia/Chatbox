@@ -1,5 +1,3 @@
-// © Microsoft Corporation. All rights reserved.
-
 import React, { useEffect, useState } from 'react';
 import { Stack, Spinner, PrimaryButton } from '@fluentui/react';
 import LocalPreview from './LocalPreview';

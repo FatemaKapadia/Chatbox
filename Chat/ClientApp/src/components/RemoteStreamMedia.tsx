@@ -1,4 +1,4 @@
-// © Microsoft Corporation. All rights reserved.
+
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Label, Spinner, SpinnerSize } from '@fluentui/react';

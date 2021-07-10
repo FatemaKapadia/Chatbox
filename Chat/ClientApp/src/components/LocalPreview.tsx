@@ -1,4 +1,4 @@
-// © Microsoft Corporation. All rights reserved.
+
 import React, { useEffect } from 'react';
 import { Stack, Toggle, Image, ImageFit } from '@fluentui/react';
 import { MicIcon, CallVideoIcon } from '@fluentui/react-icons-northstar';

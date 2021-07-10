@@ -1,4 +1,3 @@
-// © Microsoft Corporation. All rights reserved.
 import React, { useState } from 'react';
 import { Label, Overlay, Stack } from '@fluentui/react';
 import Header from '../containers/Header';

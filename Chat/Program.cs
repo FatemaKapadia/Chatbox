@@ -1,4 +1,4 @@
-﻿// © Microsoft Corporation. All rights reserved.
+﻿
 
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
