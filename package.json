@@ -9,6 +9,7 @@
     "@azure/communication-common": "^1.0.0",
     "@azure/communication-identity": "^1.0.0",
     "@azure/communication-signaling": "^1.0.0-beta.7",
+    "@ctrl/ngx-emoji-mart": "^6.0.0",
     "@fluentui/react": "^7.166.2",
     "@fluentui/react-icons-northstar": "^0.51.7",
     "@fluentui/react-northstar": "^0.51.7",
@@ -17,7 +18,13 @@
     "@types/react-dom": "^16.9.12",
     "@types/react-redux": "^7.1.16",
     "@types/uuid": "^8.3.0",
+    "@webscopeio/react-textarea-autocomplete": "^4.7.3",
     "bootstrap": "^4.6.0",
+    "emoji-datasource-apple": "^7.0.2",
+    "emoji-datasource-facebook": "^7.0.2",
+    "emoji-datasource-google": "^7.0.2",
+    "emoji-datasource-twitter": "^7.0.2",
+    "emoji-mart": "^3.0.1",
     "jquery": "^3.6.0",
     "merge": "^2.1.1",
     "node-forge": "0.10.0",
@@ -25,6 +32,7 @@
     "preval.macro": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-feather": "^2.0.9",
     "react-redux": "^7.2.3",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.2.0",
@@ -61,5 +69,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/emoji-mart": "^3.0.5"
   }
 }

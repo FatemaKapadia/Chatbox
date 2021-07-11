@@ -42,4 +42,15 @@ const sendIconStyle = mergeStyles({
   fontSize: '0.875rem' // 14px
 });
 
-export { textFieldStyle, sendBoxStyle, sendIconStyle, TextFieldStyleProps };
+const emojiStyle = mergeStyles({
+    border: 'none',
+    width: '50px',
+    height: 'auto',
+    padding: '0',
+    marginBottom: '0',    
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+});
+
+export { textFieldStyle, sendBoxStyle, sendIconStyle, TextFieldStyleProps, emojiStyle };
