@@ -106,11 +106,11 @@ const iconButtonContainerStyle = mergeStyles({
 
 const largeButtonContainerStyle = mergeStyles({
   whiteSpace: 'nowrap',
-  selectors: {
-    '@media (max-width: 50rem)': {
-      display: 'none'
-    }
-  }
+  // selectors: {
+  //   '@media (max-width: 50rem)': {
+  //     display: 'none'
+  //   }
+  // }
 });
 
 export {

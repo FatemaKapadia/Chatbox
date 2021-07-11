@@ -1,3 +1,10 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "Chat\\bin\\Release\\netcoreapp3.1\\publish",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/2702c955-4243-4d8c-aef7-3a8a3ab5bb6e/resourceGroups/chatbox_engage/providers/Microsoft.Web/sites/connectbox"
 }

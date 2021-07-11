@@ -31,10 +31,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   setScreenShare: (screenShare: boolean): void => dispatch(setShareUnshareScreen(screenShare)),
   // Only support Desktop -- Chrome | Edge (Chromium) | Safari
   isLocalScreenShareSupportedInBrowser: (): boolean => {
-    return (
-      !utils.isMobileSession() &&
-      (/chrome/i.test(navigator.userAgent.toLowerCase()) || /safari/i.test(navigator.userAgent.toLowerCase()))
-    );
+    return (true);
   }
 });
 

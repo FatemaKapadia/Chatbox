@@ -33,22 +33,26 @@ export default (): JSX.Element => {
   const [screenWidth, setScreenWidth] = useState(0);
   const [localVideoStream, setLocalVideoStream] = useState(undefined);
 
-  const unsupportedStateHandler = useCallback((): void => setPage('unsupported'), []);
+  const unsupportedStateHandler = useCallback((): void => setPage('unsupported'), []);  
 
-  // const getGroupIdFromUrl = (): string | null => {
-  //   const urlParams = new URLSearchParams(window.location.search);
-  //   console.log("I am here" + urlParams.get('groupId'));
-  //   return urlParams.get('groupId');
-  // };
   useEffect(() => {
     const setWindowWidth = (): void => {
       const width = typeof window !== 'undefined' ? window.innerWidth : 0;
       setScreenWidth(width);
     };
+
     setWindowWidth();
     window.addEventListener('resize', setWindowWidth);
-    return (): void => window.removeEventListener('resize', setWindowWidth);
+    return (): void => {
+      window.removeEventListener('resize', setWindowWidth);
+    } 
   }, []);
+
+  const getGroupIdFromUrl = (): string | null => {
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log("I am here" + urlParams.get('groupId'));
+    return urlParams.get('groupId');
+  };
 
   const getGroupId = (): string => {
     return groupId;
@@ -58,14 +62,16 @@ export default (): JSX.Element => {
     if (page === 'home') {
       return <HomeScreen />;
     } else if (page === 'configuration') {
-      return <ConfigurationScreen joinChatHandler={() => setPage('chat')} />;
+      return <ConfigurationScreen joinChatHandler={() => setPage('chat') } />;
     } else if (page === 'chat') {     
       return (
         <ChatScreen
           removedFromThreadHandler={() => setPage('removedFromThread')}
           leaveChatHandler={() => setPage('end')}
           startCallHandler={(): void => {
-            window.history.pushState({}, document.title, window.location.href + '&groupId=' + getGroupId());
+            if(!getGroupIdFromUrl()) {
+              window.history.pushState({}, document.title, window.location.href + '&groupId=' + getGroupId());
+            }
             setPage('callConfiguration');
           }}
         />

@@ -5,11 +5,8 @@ import React, { Dispatch, useEffect, useState } from 'react';
 import { copyIconStyle } from './styles/SidePanel.styles';
 import {
   chatHeaderContainerStyle,
-  greyIconButtonStyle,
-  iconButtonContainerStyle,
   largeButtonContainerStyle,
   leaveButtonStyle,
-  leaveIcon,
   pivotItemStyle,
   pivotItemStyles,
   topicNameLabelStyle

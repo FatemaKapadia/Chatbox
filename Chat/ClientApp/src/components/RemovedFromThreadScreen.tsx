@@ -2,7 +2,6 @@ import { DefaultButton, Stack } from '@fluentui/react';
 import React from 'react';
 
 import {
-  bottomStackFooterStyle,
   buttonsStackTokens,
   buttonStyle,
   endCallContainerStyle,
@@ -31,10 +30,6 @@ export default (props: RemovedFromThreadProps): JSX.Element => {
           </DefaultButton>
         </Stack>
       </Stack>
-      <div className={bottomStackFooterStyle}>
-        <a href="https://github.com/Azure/Communication/issues">Give Feedback</a>
-        &nbsp;on this sample app on Github
-      </div>
     </Stack>
   );
 };

@@ -3,7 +3,7 @@ export const GUID_FOR_INITIAL_TOPIC_NAME = 'c774da81-94d5-4652-85c7-6ed0e8dc67e6
 
 // Project configurations
 export const INITIAL_MESSAGES_SIZE = 2000;
-export const MAXIMUM_LENGTH_OF_NAME = 10;
+export const MAXIMUM_LENGTH_OF_NAME = 20;
 export const MAXIMUM_LENGTH_OF_MESSAGE = 8000;
 export const MAXIMUM_LENGTH_OF_TOPIC = 30;
 export const MAXIMUM_LENGTH_OF_TYPING_USERS = 35;
